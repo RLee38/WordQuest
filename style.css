@@ -10,22 +10,31 @@ html {
   align-items: center;
   height: 100%;
   width: 100%;
-  position:sticky;
+  position: sticky;
 }
 
 .square {
   height: 100px;
-  width:100px;
-  background-color: blue;
-  border: 2px solid black;
+  width: 100px;
+  background-color: #2e2eff;
+  border: 2px solid #404040;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  flex-grow:1;
+  flex-grow: 1;
   user-select: none;
 }
 
 .square:hover {
-  background-color: #475aff;
+  background-color: #707eff;
+}
+
+body {
+  background-color: #a3fff9;
+}
+
+.page {
+  
+  
 }
