@@ -25,7 +25,7 @@ html {
   flex-grow: 1;
   user-select: none;
 }
-
+/*SPEACH BEACH*/
 .square:hover {
 /* background-color: #707eff !important;*/
   width:110px;
@@ -33,7 +33,12 @@ html {
 }
 
 body {
-  background-color: #a3fff9;
+  background-image: url("Backgrounds/leaves.png");
+    /*#a3fff9;*/
 }
 
-.page {}
+.page {
+
+
+  
+}
