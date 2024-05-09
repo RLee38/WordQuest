@@ -6,6 +6,11 @@ function openPage(newPage, elmnt) {
   }
   document.getElementById(newPage).style.display = "block";
   var squares = document.getElementsByClassName("square")
+  /*
+  if (newPage=='Shop') {
+    document.getElementsByClassName("flexContainer")[0].style.display = "none";
+  }
+  */
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = "#2e2eff";
   }

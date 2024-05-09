@@ -3,6 +3,10 @@ html {
   width: 100%;
 }
 
+h1 { 
+    text-shadow: 2px 2px 2px #ccc;
+}
+
 .flexContainer {
   display: flex;
   flex-flow: row-wrap;
@@ -35,6 +39,29 @@ html {
 body {
   background-image: url("Backgrounds/sun.png");
     /*#a3fff9;*/
+}
+
+.shopPage { /*Flexbox for shop*/
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+ flex-grow: 0 !important;
+}
+
+.shopSquare {
+  height: 400px;
+  width: 300px;
+  background-color: #d1b70a;
+  border: 2px solid #404040;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 30px;
+  flex-grow: 0;
+  user-select: none;
 }
 
 .page {
