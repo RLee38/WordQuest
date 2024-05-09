@@ -16,4 +16,30 @@ function openPage(newPage, elmnt) {
   }
   elmnt.style.backgroundColor = "#707eff";
 }
+
+function buyBackground(background) {
+console.log("Buy Background");
+  equipBackground(background);
+}
+
+function equipBackground(background) {
+switch(background) {
+  case "swirl":
+document.body.style.backgroundImage = URL("Backgrounds/swirl.jpg");
+    break;
+  case "scales":
+
+    break;
+  case "firefly":
+
+    break;
+  case "bubblegum":
+
+    break;
+}
+}
+
+
+
+
 document.getElementById("defaultOpen").click();
