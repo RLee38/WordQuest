@@ -55,20 +55,43 @@ h2 {
 }
 
 .textSquare {
+  /*
   font-family: "Jaro", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  
   text-shadow: 5px 5px 5px #c7c7c7;
   text-shadow: -3px -3px 5px #c7c7c7;
+  
   height: 150px;
   width: 600px; 
+  background-color: wheat;
+  
+  fill-opacity: 0.5;
+  
   display: center;
   justify-content: center;
   align-items: center;
   font-size: 20px;
   flex-grow: 1;
+  
   user-select: none;
+  */
+height:150px;
+  width:600px;
+  background-image:radial-gradient(circle,rgba(255,255,242,0.4),rgba(255,255,242,0.75));
+  border:white;
+  border-width: 3px;
+display:flex;
+  justify-content: center;
+  align-items: center;
+  fill-opacity: 0.5;
+
+
+
+
+  
 }
 
 body {
