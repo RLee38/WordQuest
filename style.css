@@ -17,6 +17,14 @@ h1 {
     text-shadow: 2px 2px 2px #ccc;
 }
 
+h2 {
+  font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 2px #ccc;
+}
+
 .flexContainer {
   display: flex;
   flex-flow: row-wrap;
@@ -54,7 +62,8 @@ body {
 .shopPage { /*Flexbox for shop*/
   display: flex;
   flex-direction: row !important;
-  justify-content: space-around;
+  flex-wrap: wrap !important;
+  justify-content:center;
   align-items:center;
   height: 100%;
   width: 100%;

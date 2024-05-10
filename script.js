@@ -5,6 +5,9 @@ function openPage(newPage, elmnt) {
     page[i].style.display = "none";
   }
   document.getElementById(newPage).style.display = "block";
+  if (newPage=="Shop") {
+    document.getElementById(newPage).style.display = "flex";
+  }
   var squares = document.getElementsByClassName("square")
   /*
   if (newPage=='Shop') {
@@ -35,6 +38,11 @@ document.body.style.backgroundImage = "url('Backgrounds/swirl.jpg')";
     break;
   case "bubblegum":
     document.body.style.backgroundImage = "url('Backgrounds/bubblegum.jpg')";
+    break;
+    case "sun":
+    document.body.style.backgroundImage = "url('Backgrounds/sun.png')";
+    break;
+    document.body.style.backgroundImage = "url('Backgrounds/sun.png')";
     break;
 }
 }
