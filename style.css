@@ -1,9 +1,19 @@
 html {
   height: 100%;
   width: 100%;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 1px #537cb2;
+  color: #182043;
 }
 
-h1 { 
+
+h1 {
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     text-shadow: 2px 2px 2px #ccc;
 }
 
@@ -14,7 +24,7 @@ h1 {
   align-items: center;
   height: 100%;
   width: 100%;
-  position: sticky;
+  position: relative;
 }
 
 .square {
@@ -29,7 +39,7 @@ h1 {
   flex-grow: 1;
   user-select: none;
 }
-/*SPEACH BEACH*/
+/*SPEECH BEACH*/
 .square:hover {
 /* background-color: #707eff !important;*/
   width:110px;
@@ -45,27 +55,35 @@ body {
   display: flex;
   flex-direction: row !important;
   justify-content: space-around;
-  align-items: center;
+  align-items:center;
   height: 100%;
   width: 100%;
- flex-grow: 0 !important;
 }
 
 .shopSquare {
-  height: 400px;
-  width: 300px;
-  background-color: #d1b70a;
+  height: 380px;/*400*/
+  width: 340px;/*550*//*200 width with 20 px on each side*/
+  background-color: #f5d819;
   border: 2px solid #404040;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction:column-reverse;
+  justify-content:center;
+  align-items: center;
   font-size: 30px;
   flex-grow: 0;
   user-select: none;
+  
+}
+
+.backgroundPos {
+  height:300px;
+  width:300px;
+  position: relative;
+  /*top:-70px;*/
 }
 
 .page {
-
-
   
+  
+    
 }

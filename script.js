@@ -25,16 +25,16 @@ console.log("Buy Background");
 function equipBackground(background) {
 switch(background) {
   case "swirl":
-document.body.style.backgroundImage = URL("Backgrounds/swirl.jpg");
+document.body.style.backgroundImage = "url('Backgrounds/swirl.jpg')";
     break;
   case "scales":
-
+    document.body.style.backgroundImage = "url('Backgrounds/scales.jpg')";
     break;
   case "firefly":
-
+    document.body.style.backgroundImage = "url('Backgrounds/firefly.jpg')";
     break;
   case "bubblegum":
-
+    document.body.style.backgroundImage = "url('Backgrounds/bubblegum.jpg')";
     break;
 }
 }
