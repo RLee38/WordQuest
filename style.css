@@ -149,6 +149,20 @@ body {
   user-select: none;
   
 }
+.loginSquare {
+  height: 35px;/*400*/
+  width: 200px;/*550*//*200 width with 20 px on each side*/
+  background-color: #f5d819;
+  border: 2px solid #404040;
+  display: flex;
+ 
+  justify-content:center;
+  align-items: center;
+  font-size: 30px;
+  flex-grow: 0;
+  user-select: none;
+
+}
 
 .backgroundPos {
   height:300px;
@@ -158,7 +172,4 @@ body {
 }
 
 .page {
-  
-  
-    
 }

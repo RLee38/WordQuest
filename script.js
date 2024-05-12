@@ -4,6 +4,12 @@ function openPage(newPage, elmnt) {
   for (i = 0; i < page.length; i++) {
     page[i].style.display = "none";
   }
+  if (newPage=="Home") {
+    console.log("Newpage equaled home");
+  var login = document.getElementsByClassName("loginSquare");
+  login[0].style.display = "none";
+    document.getElementsByClassName("flexContainer")[0].style.display = "flex";
+}
   document.getElementById(newPage).style.display = "block";
   if (newPage=="Shop") {
     document.getElementById(newPage).style.display = "flex";
@@ -16,12 +22,13 @@ function openPage(newPage, elmnt) {
   */
   if (newPage=='Login') {
     document.getElementsByClassName("flexContainer")[0].style.display = "none";
+    
   }
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = "#2e2eff";
   }
   elmnt.style.backgroundColor = "#707eff";
-}
+} /* end of openPage()*/ 
 
 function buyBackground(background) {
 console.log("Buy Background");
@@ -30,6 +37,11 @@ console.log("Buy Background");
 
 function equipBackground(background) {
   document.body.style.backgroundImage = "url('Backgrounds/"+background+".png')";
+}
+
+function validateLogin(a) {
+  console.log("validating");
+  openPage('Home',a);
 }
 
 
