@@ -15,20 +15,28 @@
 <body>
 
   <div class="flexContainer">
-    <div class="square" onclick="openPage('Home',this)" id="defaultOpen">Home</div>
+    <div onclick="openPage('Login',this)" id="defaultOpen"></div>
+    <div class="square" onclick="openPage('Home',this)">Home</div>
     <div class="square" onclick="openPage('Games',this)">Games</div>
     <div class="square" onclick="openPage('Shop',this)">Shop</div>
     <div class="square" onclick="openPage('Inventory',this)">Inventory</div>
     <div class="square" onclick="openPage('About',this)">About</div>
     <div class="square" onclick="openPage('User',this)">User</div>
   </div> <!--  end of the flex-container   -->
+
+
+
+
+<div id="Login" class="page">
+  <h1 style="object-position: center;">LOGIN FOR ME BBG</h1>
+</div>
+  
   <div id="Home" class="page">
     <h1>This is the Home Page</h1>
   </div> <!--  End of the Home Page  -->
 
-  <div id="Games" class="page">
-    <h1>This is the Games Page</h1>
-    <!-- Set up row like in shop with icons and title for games -->
+  <div id="Games" class="page gamePage">
+    <div class="gameSquare">Speech Beach</div>
   </div> <!--  End of the Games Page -->
 
   <div id="Shop" class="page shopPage">

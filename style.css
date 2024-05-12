@@ -110,7 +110,32 @@ body {
   width: 100%;
 }
 
+.gamePage { /*Flexbox for games*/
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content:center;
+  align-items:center;
+  height: 100%;
+  width: 100%;
+}
+
 .shopSquare {
+  height: 380px;/*400*/
+  width: 340px;/*550*//*200 width with 20 px on each side*/
+  background-color: #f5d819;
+  border: 2px solid #404040;
+  display: flex;
+  flex-direction:column-reverse;
+  justify-content:center;
+  align-items: center;
+  font-size: 30px;
+  flex-grow: 0;
+  user-select: none;
+
+}
+
+.gameSquare {
   height: 380px;/*400*/
   width: 340px;/*550*//*200 width with 20 px on each side*/
   background-color: #f5d819;
