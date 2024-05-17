@@ -1,4 +1,21 @@
-function openPage(newPage, elmnt) {
+function openPage(newPage) {
+window.open("pages/"+newPage + ".html", "_self");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  /*
   console.log(newPage)
   var i, page;
   page = document.getElementsByClassName("page");
@@ -21,7 +38,7 @@ function openPage(newPage, elmnt) {
   if (newPage=='Shop') {
     document.getElementsByClassName("flexContainer")[0].style.display = "none";
   }
-  */
+  
   if (newPage=='Login') {
     document.getElementsByClassName("flexContainer")[0].style.display = "none";
     
@@ -30,6 +47,7 @@ function openPage(newPage, elmnt) {
     squares[i].style.backgroundColor = "#2e2eff";
   }
   elmnt.style.backgroundColor = "#707eff";
+  */
 } /* end of openPage()*/ 
 
 function buyBackground(background) {
@@ -41,12 +59,12 @@ function equipBackground(background) {
   document.body.style.backgroundImage = "url('Backgrounds/"+background+".png')";
 }
 
-function validateLogin(a) {
+function validateLogin() {
   console.log("validating");
-  openPage('Home',a);
+  openPage('Home');
 }
 
 
 
 
-document.getElementById("defaultOpen").click();
+/*document.getElementById("defaultOpen").click();*/

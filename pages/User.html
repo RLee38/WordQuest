@@ -5,7 +5,16 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>About Us</h1>
+    <div class="flexContainer">
+        <div onclick="openPage('Login',this)" id="defaultOpen"></div>
+        <div class="square" onclick="openPage('Home')">Home</div>
+        <div class="square" onclick="openPage('Games')">Games</div>
+        <div class="square" onclick="openPage('Shop')">Shop</div>
+        <div class="square" onclick="openPage('Inventory')">Inventory</div>
+        <div class="square" onclick="openPage('About')">About</div>
+        <div class="square" onclick="openPage('User')">User</div>
+      </div> <!--  end of the flex-container   -->
+    <h1>User</h1>
 
 </body>
 </html>
