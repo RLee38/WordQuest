@@ -1,0 +1,9 @@
+If it is actively run on replit. we can use the AI to come up with grammatically correct semi-simple sentences for speech beach.
+
+Mini-Acrostic Puzzle:
+Use substring method to parse through acrostic words and find shared letters than align with if they are perpendicular i.e. a down word and an across word.
+
+Savanna Synonyms:
+We could the online oxford dictionary of google to find similar words to what we have as the original word and then aim your binoculars over the best synonym.
+
+

@@ -1,4 +1,5 @@
 function openPage(newPage, elmnt) {
+  console.log(newPage)
   var i, page;
   page = document.getElementsByClassName("page");
   for (i = 0; i < page.length; i++) {
@@ -11,6 +12,7 @@ function openPage(newPage, elmnt) {
     document.getElementsByClassName("flexContainer")[0].style.display = "flex";
 }
   document.getElementById(newPage).style.display = "block";
+  console.log("blocking")
   if (newPage=="Shop") {
     document.getElementById(newPage).style.display = "flex";
   }
