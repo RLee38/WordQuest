@@ -1,6 +1,6 @@
 console.log("running");
 function openPage(newPage) {
-window.open("pages/"+newPage + ".html", "_self");
+window.open("../pages/"+newPage + ".html", "_self");
 
 
 
@@ -51,10 +51,7 @@ window.open("pages/"+newPage + ".html", "_self");
   */
 } /* end of openPage()*/ 
 
-function buyBackground(background) {
-console.log("Buy Background");
-  equipBackground(background);
-}
+
 
 function equipBackground(background) {
   document.body.style.backgroundImage = "url('Backgrounds/"+background+".png')";
