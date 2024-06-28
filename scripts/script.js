@@ -10,7 +10,11 @@ function loadBackground() {
 function initialBackground() {
   if (!sessionStorage.getItem('initializezBackground')) {
     sessionStorage.setItem('initializeBackground', 'true');
+
+    document.addEventListener('DOMContentLoaded',function() {
     document.body.style.backgroundImage = "url('../Backgrounds/sun.png')";
+    });
+    
   }
 
 }
@@ -57,24 +61,22 @@ function validateLogin() {
   let userAttempt = document.getElementById("username").value;
   let passAttempt = document.getElementById("password").value;
   //LOAD THE USERS AND PASSWORDS HERE
-
-  let fr = new FileReader();
+/*
+  
   // let user_pass_file = new File("..user-pass.txt");
-
-
-
+ // let user_pass_file = new File(['user-pass.txt'], "user-pass.txt", { type: "text/plain" });
+  
+  let fr = new FileReader();
   fr.readAsText(user_pass_file);
-
   fr.onload = function() {
     console.log(fr.result);
   }
-
   fr.onerror = function() {
-    console.log(fr.error);
+    console.error(fr.error);
   }
-
+*/
   //END LOADING THE USER AND PASSWORDS HERE
-  //openPage('Home');
+  openPage('Home');
 }
 
 
