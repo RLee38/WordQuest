@@ -6,4 +6,14 @@ Use substring method to parse through acrostic words and find shared letters tha
 Savanna Synonyms:
 We could the online oxford dictionary of google to find similar words to what we have as the original word and then aim your binoculars over the best synonym.
 
+https://www.literacymidsouth.org/news/the-relationship-between-incarceration-and-low-literacy#:~:text=A%20low%20level%20of%20literacy,%2C%20dropout%20rates%2C%20and%20crime.
+ //Lots of good quotes for the About section, minimal data or atleast none that can be turned into graphs
 
+https://nces.ed.gov/pubs94/94102.pdf
+//very long could have good graph data though
+
+ https://www.prisonpolicy.org/blog/2016/04/01/literacy/
+ //a graph already made for us
+
+
+ //

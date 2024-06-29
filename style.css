@@ -153,10 +153,10 @@ body {
 .loginSquare {
   height: 35px;/*400*/
   width: 200px;/*550*//*200 width with 20 px on each side*/
+  margin:auto;
   background-color: #f5d819;
   border: 2px solid #404040;
   display: flex;
- 
   justify-content:center;
   align-items: center;
   font-size: 30px;
@@ -185,6 +185,12 @@ body {
   width:300px;
   position: relative;
   /*top:-70px;*/
+}
+
+.loginTextbox {
+  all: unset;
+  background-color:lemonchiffon;
+border: 2px solid black;
 }
 
 .page {

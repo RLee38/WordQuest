@@ -59,13 +59,14 @@ function equipBackground(background) {
 function validateLogin() {
   console.log("validating");
   let userAttempt = document.getElementById("username").value;
+  console.log(userAttempt);
   let passAttempt = document.getElementById("password").value;
+  console.log(passAttempt);
   //LOAD THE USERS AND PASSWORDS HERE
-/*
+
   
-  // let user_pass_file = new File("..user-pass.txt");
- // let user_pass_file = new File(['user-pass.txt'], "user-pass.txt", { type: "text/plain" });
   
+ /*
   let fr = new FileReader();
   fr.readAsText(user_pass_file);
   fr.onload = function() {
