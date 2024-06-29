@@ -4,7 +4,12 @@ initialBackground();
 loadBackground();
 function loadBackground() {
   if (sessionStorage.getItem('background') != null) {
+    console.log(sessionStorage.getItem('background'));
+
+    document.addEventListener('DOMContentLoaded',function() {
     document.body.style.backgroundImage = "url('../Backgrounds/" + sessionStorage.getItem('background') + ".png')";
+    });
+    
   }
 }
 function initialBackground() {
