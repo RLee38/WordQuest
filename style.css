@@ -193,5 +193,23 @@ body {
 border: 2px solid black;
 }
 
+.shopSeperator {
+  background: #747272;
+  border: 2px solid black;
+  margin: auto;
+  width:98%
+  height: 35px;
+  text-align: center;
+  font-size: 35px;
+  font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 2px #ccc;
+padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+
 .page {
 }
