@@ -68,21 +68,19 @@ function validateLogin() {
   let passAttempt = document.getElementById("password").value;
   console.log(passAttempt);
   //LOAD THE USERS AND PASSWORDS HERE
+  console.log("before fetch");
+  fetch("../user-pass.json")
+      .then(response => response.json())
+      .then(values => values.forEach(value => {
+       if (userAttempt==value.username && passAttempt==value.password) {
 
-  
-  
- /*
-  let fr = new FileReader();
-  fr.readAsText(user_pass_file);
-  fr.onload = function() {
-    console.log(fr.result);
-  }
-  fr.onerror = function() {
-    console.error(fr.error);
-  }
-*/
+         console.log("Login validated");
+         openPage('Home');
+       }
+                    }))
+  console.log('INVALID');
   //END LOADING THE USER AND PASSWORDS HERE
-  openPage('Home');
+  
 }
 
 

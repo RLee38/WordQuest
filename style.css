@@ -80,18 +80,19 @@ h2 {
   user-select: none;
   */
 height:150px;
-  width:600px;
+  width:98%; /*600px previously*/
   background-image:radial-gradient(circle,rgba(255,255,242,0.4),rgba(255,255,242,0.75));
   border-color:black;
   border-width: 5px;
-  
 display:flex;
   justify-content: center;
   align-items: center;
   fill-opacity: 0.5;
-
-
-
+overflow-x: hidden;
+  margin:auto;
+  padding: 2px;
+padding-left:2px;
+  
 
   
 }
@@ -193,7 +194,7 @@ body {
 border: 2px solid black;
 }
 
-.shopSeperator {
+.seperator {
   background: #747272;
   border: 2px solid black;
   margin: auto;
@@ -208,7 +209,7 @@ border: 2px solid black;
   text-shadow: 2px 2px 2px #ccc;
 margin-top: 10px;
   margin-bottom: 10px;
-  
+  user-select: none;
 }
 
 .page {
