@@ -92,9 +92,17 @@ overflow-x: hidden;
   margin:auto;
   padding: 2px;
 padding-left:2px;
-  
+}
 
-  
+.userText {
+  font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 2px #ccc;
+  font-size: 20px;
+  flex-grow: 1;
+  user-select: none;
 }
 
 body {
@@ -210,6 +218,26 @@ border: 2px solid black;
 margin-top: 10px;
   margin-bottom: 10px;
   user-select: none;
+}
+
+.invalidLogin {
+  background-color: red;
+  border: 2px solid black;
+  margin: auto;
+  width: 220px;
+  height:20px;
+  margin-top: 4px;
+  display:none;
+  color:black;
+  animation-name: IL;
+  animation-duration:5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes IL {
+  0% {background-color: red;}
+  50% {background-color: #bd0026;}
+  100% {background-color: red;}
 }
 
 .page {

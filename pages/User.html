@@ -4,7 +4,7 @@
     <title>About Page</title>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body onload="loadUserHTML()">
     <div class="flexContainer">
         <div onclick="openPage('Login',this)" id="defaultOpen"></div>
         <div class="square" onclick="openPage('Home')">Home</div>
@@ -15,7 +15,11 @@
         <div class="square" onclick="openPage('User')">User</div>
       </div> <!--  end of the flex-container   -->
     <h1>User</h1>
-    <br></br>
+    <br>
+    <div class="userText" id="User_Username">Username:  </div>
+    <div class="userText" id="User_Password">Password:  </div>
+    <div class="userText" id="User_Age">Age:  </div>
+    <div class="userText" id="User_QuestCoins">QuestCoins:  </div>
     <div class="logoutSquare" onClick="logout()">
         LOGOUT
     </div>

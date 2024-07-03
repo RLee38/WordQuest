@@ -1,22 +1,38 @@
 [
   {
   "username": "Gamerboy26",
-    "password": "123abc"
+    "password": "123abc",
+    "age": 2,
+    "QuestCoin": 1000,
+    "UnlockedBackgrounds": ["darkflower", "bananas"]
   },
   {
     "username": "SlenderStone97",
-    "password": "password"
+    "password": "password",
+    "age": 17,
+    "QuestCoin": 0,
+    "UnlockedBackgrounds": ["firefly", "leaves","denim"]
+    
   },
   {
     "username": "GlowingPumpkin44",
-    "password": "Fido2024"
+    "password": "Fido2024",
+    "age": 10,
+    "QuestCoin": 200,
+    "UnlockedBackgrounds": ["paisley", "scales"]
   },
   {
     "username": "CuteGeese20",
-    "password": "Smith1997"
+    "password": "Smith1997",
+    "age": 21,
+    "QuestCoin": 500,
+    "UnlockedBackgrounds": ["swirl", "leaves2","scales"]
   },
   {
     "username": "SlimTurtle45",
-    "password": "qwertyuiop"
+    "password": "qwertyuiop",
+    "age": 58,
+    "QuestCoin": 9999,
+    "UnlockedBackgrounds": ["darkflower", "bananas","bubblegum"]
   }
 ]
