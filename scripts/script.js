@@ -47,6 +47,7 @@ function buyBackground(background) {
 }
 
 function equipBackground(background) {
+  console.log("runnnnnn");
   document.body.style.backgroundImage = "url('../Backgrounds/" + background + ".png')";
   sessionStorage.setItem('background', background);
 }
@@ -68,6 +69,7 @@ function loadInventoryHTML() {
   for (let i = 0; i<inventory.length;i++) {
     let backgroundSquare = document.createElement("div");
     backgroundSquare.className="shopSquare";
+    backgroundSquare.addEventListener("click",() => equipBackground(inventory[i]));
     backgroundSquare.innerHTML+=inventory[i].charAt(0).toUpperCase() + inventory[i].slice(1) + " Background";
 let pic = document.createElement("img");
     pic.src="../Backgrounds/" + inventory[i] + ".png";
