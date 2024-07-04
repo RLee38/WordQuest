@@ -70,16 +70,19 @@ function loadInventoryHTML() {
     let backgroundSquare = document.createElement("div");
     backgroundSquare.className="shopSquare";
     backgroundSquare.addEventListener("click",() => equipBackground(inventory[i]));
-    backgroundSquare.innerHTML+=inventory[i].charAt(0).toUpperCase() + inventory[i].slice(1) + " Background";
+backgroundSquare.innerHTML+=inventory[i].charAt(0).toUpperCase() + inventory[i].slice(1) + " Background";
 let pic = document.createElement("img");
     pic.src="../Backgrounds/" + inventory[i] + ".png";
     pic.className="backgroundPos";
     backgroundSquare.appendChild(pic);
-    document.getElementById("inventoryBackgrounds").appendChild(backgroundSquare);
+document.getElementById("inventoryBackgrounds").appendChild(backgroundSquare);
   } // end for statement
 }
 
-
+function newUser() {
+console.log("NEW USR BEING CALLED");
+  openPage('Signup');
+}
 
 function validateLogin() {
   let userAttempt = document.getElementById("username").value;

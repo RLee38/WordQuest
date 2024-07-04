@@ -15,6 +15,7 @@ h1 {
     font-weight: 400;
     font-style: normal;
     text-shadow: 2px 2px 2px #ccc;
+  margin-bottom:0px;
 }
 
 h2 {
@@ -57,6 +58,27 @@ h2 {
   height:110px;
   margin-bottom:0px;
   margin-top:0px;
+}
+
+.signupSquare {
+  margin:auto;
+  margin-bottom:45px;
+  background-color:wheat;
+  width:200px;
+  height:20px;
+  border:2px solid #000000;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  user-select: none;
+}
+
+.signupSquare:hover {
+  background-color: #ffcc00;
+  width:210px;
+  height:25px;
+  margin-bottom:40px;
+  line-height:25px;
 }
 
 .textSquare {
@@ -145,6 +167,7 @@ body {
 }
 
 .shopSquare {
+  position:relative;
   height: 380px;/*400*/
   width: 340px;/*550*//*200 width with 20 px on each side*/
   background-color: #f5d819;
@@ -201,6 +224,17 @@ body {
   flex-grow: 0;
   user-select: none;
 
+}
+
+.shopPrice {
+  position: absolute;
+  background-color: wheat;
+  width:100px;
+  height:30px;
+  right:216px;
+  top:289px;
+  border: 2px solid #000000;
+  font-size: 24px;
 }
 
 .backgroundPos {
