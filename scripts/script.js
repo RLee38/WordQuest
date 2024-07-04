@@ -61,6 +61,22 @@ function loadUserHTML() {
   document.getElementById("User_QuestCoins").innerHTML += sessionStorage.getItem("Current_User_QuestCoin");
 }
 
+function loadInventoryHTML() {
+  console.log("LOADING INVENTORY HTML");
+  let inventory = JSON.parse(sessionStorage.getItem("Current_User_Unlocked_Background"));
+  console.log(inventory[0]);
+  for (let i = 0; i<inventory.length;i++) {
+    let backgroundSquare = document.createElement("div");
+    backgroundSquare.className="shopSquare";
+    backgroundSquare.innerHTML+=inventory[i].charAt(0).toUpperCase() + inventory[i].slice(1) + " Background";
+let pic = document.createElement("img");
+    pic.src="../Backgrounds/" + inventory[i] + ".png";
+    pic.className="backgroundPos";
+    backgroundSquare.appendChild(pic);
+    document.getElementById("inventoryBackgrounds").appendChild(backgroundSquare);
+  } // end for statement
+}
+
 
 
 function validateLogin() {
@@ -76,7 +92,9 @@ function validateLogin() {
          console.log("Login validated");
          sessionStorage.setItem('Current_User',userAttempt);
          sessionStorage.setItem('Current_Pass',passAttempt);
-         sessionStorage.setItem('Current_User_Unlocked_Background',value.Current_User_Unlocked_Background);
+         sessionStorage.setItem('Current_User_Unlocked_Background',JSON.stringify(value.UnlockedBackgrounds));
+         console.log(value.UnlockedBackgrounds);
+         console.log(sessionStorage.getItem('Current_User_Unlocked_Background'))
          sessionStorage.setItem('Current_User_Age',value.age);
          sessionStorage.setItem('Current_User_QuestCoin',value.QuestCoin);
          openPage('Home');

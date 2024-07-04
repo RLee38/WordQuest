@@ -4,7 +4,7 @@
     <title>Inventory Page</title>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body onload=loadInventoryHTML()>
     <div class="flexContainer">
         <div onclick="openPage('Login',this)" id="defaultOpen"></div>
         <div class="square" onclick="openPage('Home')">Home</div>
@@ -14,8 +14,8 @@
         <div class="square" onclick="openPage('About')">About</div>
         <div class="square" onclick="openPage('User')">User</div>
       </div> <!--  end of the flex-container   -->
-    <h1>Inventory</h1>
     <div class="seperator">Backgrounds</div>
+    <div class="inventoryPage" id="inventoryBackgrounds"></div>
     <div class="seperator">Profiles</div>
     <div class="seperator">Speech Beach Avatars</div>
     <script src="../scripts/script.js"></script>
