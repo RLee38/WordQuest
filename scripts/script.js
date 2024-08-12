@@ -84,6 +84,15 @@ console.log("NEW USR BEING CALLED");
   openPage('Signup');
 }
 
+//loadQCTopBar
+document.addEventListener('DOMContentLoaded',
+function () {
+  let qcTopBar = document.getElementById("questCoin_topBar")
+    qcTopBar.innerHTML = sessionStorage.getItem("Current_User_QuestCoin").toString();
+  qcTopBar.innerHTML+= " QC";
+});
+
+
 function validateLogin() {
   let userAttempt = document.getElementById("username").value;
   console.log(userAttempt);
