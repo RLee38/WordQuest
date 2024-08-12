@@ -136,6 +136,33 @@ body {
     /*#a3fff9;*/
 }
 
+.userFlex {
+  display:flex;
+  flex-direction: row;
+}
+
+.userTextFlex {
+  flex: 1;
+  padding: 20px;
+  max-width: 400px;
+}
+
+.userImgFlex {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userImgFlex img {
+  /*This should only handle the profile image*/
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+ 
+}
+
 .shopPage { /*Flexbox for shop*/
   display: flex;
   flex-direction: row !important;

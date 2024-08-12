@@ -95,7 +95,7 @@ function validateLogin() {
       .then(values => values.forEach(value => {
        if (userAttempt==value.username && passAttempt==value.password) {
          console.log("Login validated");
-         sessionStorage.setItem('Current_User',userAttempt);
+      sessionStorage.setItem('Current_User',userAttempt);
          sessionStorage.setItem('Current_Pass',passAttempt);
          sessionStorage.setItem('Current_User_Unlocked_Background',JSON.stringify(value.UnlockedBackgrounds));
          console.log(value.UnlockedBackgrounds);
@@ -103,10 +103,14 @@ function validateLogin() {
          sessionStorage.setItem('Current_User_Age',value.age);
          sessionStorage.setItem('Current_User_QuestCoin',value.QuestCoin);
          openPage('Home');
+       } else {
+         console.log("Login failed");
+         document.getElementById("InvalidLogin").style.display = "block";
+         document.getElementById("InvalidLogin").style.margin = "auto";
        }
                     }))
-  document.getElementById("InvalidLogin").style.display = "block";
-  document.getElementById("InvalidLogin").style.margin = "auto";
+ 
+  
   //END LOADING THE USER AND PASSWORDS HERE
   
 }
