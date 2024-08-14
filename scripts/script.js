@@ -68,6 +68,7 @@ function loadUserHTML() {
   document.getElementById("User_Password").innerHTML += sessionStorage.getItem("Current_Pass");
   document.getElementById("User_Age").innerHTML += sessionStorage.getItem("Current_User_Age");
   document.getElementById("User_QuestCoins").innerHTML += sessionStorage.getItem("Current_User_QuestCoin");
+  document.getElementById("userProfile").src = "../Profiles/" + sessionStorage.getItem('profile') + ".png";
 }
 
 function loadInventoryHTML() {
