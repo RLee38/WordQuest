@@ -52,6 +52,11 @@ function equipBackground(background) {
   sessionStorage.setItem('background', background);
 }
 
+function equipProfile(profile) {
+console.log("EQUIP PROFILE IS RUNNING");
+  
+}
+
 
 function loadUserHTML() {
   
@@ -64,19 +69,32 @@ function loadUserHTML() {
 
 function loadInventoryHTML() {
   console.log("LOADING INVENTORY HTML");
-  let inventory = JSON.parse(sessionStorage.getItem("Current_User_Unlocked_Background"));
-  console.log(inventory[0]);
-  for (let i = 0; i<inventory.length;i++) {
+  let inventoryBackgrounds = JSON.parse(sessionStorage.getItem("Current_User_Unlocked_Background"));
+  console.log(inventoryBackgrounds[0]);
+  for (let i = 0; i<inventoryBackgrounds.length;i++) {
     let backgroundSquare = document.createElement("div");
     backgroundSquare.className="shopSquare";
-    backgroundSquare.addEventListener("click",() => equipBackground(inventory[i]));
-backgroundSquare.innerHTML+=inventory[i].charAt(0).toUpperCase() + inventory[i].slice(1) + " Background";
+    backgroundSquare.addEventListener("click",() => equipBackground(inventoryBackgrounds[i]));
+backgroundSquare.innerHTML+=inventoryBackgrounds[i].charAt(0).toUpperCase() + inventoryBackgrounds[i].slice(1) + " Background";
 let pic = document.createElement("img");
-    pic.src="../Backgrounds/" + inventory[i] + ".png";
+    pic.src="../Backgrounds/" + inventoryBackgrounds[i] + ".png";
     pic.className="backgroundPos";
     backgroundSquare.appendChild(pic);
 document.getElementById("inventoryBackgrounds").appendChild(backgroundSquare);
   } // end for statement
+  let inventoryProfiles = JSON.parse(sessionStorage.getItem("Current_User_Unlocked_Profile"));
+  console.log(inventoryProfiles[0]);
+  for (let i = 0; i<inventoryProfiles.length;i++) {
+    let profileSquare = document.createElement("div");
+    profileSquare.className="shopSquare";
+    profileSquare.addEventListener("click",() => equipProfile(inventoryProfiles[i]));
+    profileSquare.innerHTML+=inventoryProfiles[i] + " Profile";
+    let ppic = document.createElement("img");
+    ppic.src="../Profiles/" + inventoryProfiles[i] + ".png";
+    ppic.className="backgroundPos";
+     profileSquare.appendChild(ppic);
+document.getElementById("inventoryProfiles").appendChild(profileSquare);
+  }//end for statement
 }
 
 function newUser() {
