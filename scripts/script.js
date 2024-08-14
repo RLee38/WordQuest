@@ -53,8 +53,11 @@ function equipBackground(background) {
 }
 
 function equipProfile(profile) {
-console.log("EQUIP PROFILE IS RUNNING");
-  
+console.log("EQUIP PROFILE IS RUNNING" + profile);
+
+  sessionStorage.setItem('profile',profile);
+  profileTopBar = document.getElementById('profileTopBar');
+  profileTopBar.src = "../Profiles/" + profile + ".png";
 }
 
 
@@ -109,7 +112,8 @@ function () {
   let qcTopBar = document.getElementById("questCoin_topBar")
     qcTopBar.innerHTML = sessionStorage.getItem("Current_User_QuestCoin").toString();
   qcTopBar.innerHTML+= " QC";
-  
+  profileTopBar = document.getElementById('profileTopBar');
+  profileTopBar.src = "../Profiles/" + sessionStorage.getItem("profile") + ".png";
 });
 
 
@@ -129,8 +133,9 @@ function validateLogin() {
 sessionStorage.setItem('Current_User_Unlocked_Background',JSON.stringify(value.UnlockedBackgrounds));
          //console.log(JSON.stringify(value.UnlockedProfiles))
          sessionStorage.setItem('Current_User_Unlocked_Profile',JSON.stringify(value.UnlockedProfiles));
-         console.log(value.UnlockedBackgrounds);
-         console.log(sessionStorage.getItem('Current_User_Unlocked_Background'))
+    console.log(value.UnlockedBackgrounds);
+console.log(sessionStorage.getItem('Current_User_Unlocked_Background'))
+         sessionStorage.setItem('profile','Default');
          sessionStorage.setItem('Current_User_Age',value.age);
          sessionStorage.setItem('Current_User_QuestCoin',value.QuestCoin);
         openPage('Home');
