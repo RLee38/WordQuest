@@ -87,9 +87,11 @@ console.log("NEW USR BEING CALLED");
 //loadQCTopBar
 document.addEventListener('DOMContentLoaded',
 function () {
+  console.log(sessionStorage.getItem('Current_User_Unlocked_Profile'));
   let qcTopBar = document.getElementById("questCoin_topBar")
     qcTopBar.innerHTML = sessionStorage.getItem("Current_User_QuestCoin").toString();
   qcTopBar.innerHTML+= " QC";
+  
 });
 
 
@@ -104,14 +106,16 @@ function validateLogin() {
       .then(values => values.forEach(value => {
        if (userAttempt==value.username && passAttempt==value.password) {
          console.log("Login validated");
-      sessionStorage.setItem('Current_User',userAttempt);
-         sessionStorage.setItem('Current_Pass',passAttempt);
-         sessionStorage.setItem('Current_User_Unlocked_Background',JSON.stringify(value.UnlockedBackgrounds));
+  sessionStorage.setItem('Current_User',userAttempt);
+  sessionStorage.setItem('Current_Pass',passAttempt);
+sessionStorage.setItem('Current_User_Unlocked_Background',JSON.stringify(value.UnlockedBackgrounds));
+         //console.log(JSON.stringify(value.UnlockedProfiles))
+         sessionStorage.setItem('Current_User_Unlocked_Profile',JSON.stringify(value.UnlockedProfiles));
          console.log(value.UnlockedBackgrounds);
          console.log(sessionStorage.getItem('Current_User_Unlocked_Background'))
          sessionStorage.setItem('Current_User_Age',value.age);
          sessionStorage.setItem('Current_User_QuestCoin',value.QuestCoin);
-         openPage('Home');
+        openPage('Home');
        } else {
          console.log("Login failed");
          document.getElementById("InvalidLogin").style.display = "block";
