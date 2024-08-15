@@ -52,6 +52,11 @@ function equipBackground(background) {
   sessionStorage.setItem('background', background);
 }
 
+function buyProfile(profile) {
+  console.log("Buying Profile");
+  equipProfile(profile);
+}
+
 function equipProfile(profile) {
 console.log("EQUIP PROFILE IS RUNNING" + profile);
 
@@ -69,6 +74,20 @@ function loadUserHTML() {
   document.getElementById("User_Age").innerHTML += sessionStorage.getItem("Current_User_Age");
   document.getElementById("User_QuestCoins").innerHTML += sessionStorage.getItem("Current_User_QuestCoin");
   document.getElementById("userProfile").src = "../Profiles/" + sessionStorage.getItem('profile') + ".png";
+}
+
+function loadShopHTML() {
+  //Current_User_Unlocked_Background 
+  //Current_User_Unlocked_Profile
+  let UP = JSON.parse(sessionStorage.getItem('Current_User_Unlocked_Profile'));
+  console.log("UP"+UP);
+  UB = JSON.parse(sessionStorage.getItem('Current_User_Unlocked_Background'));
+  console.log("UB"+UB);
+  for (let i = 0; i<UP.length;i++) {
+    console.log(UP[i]);
+    document.getElementById(UP[i]).style.display = "none";
+  }
+  
 }
 
 function loadInventoryHTML() {

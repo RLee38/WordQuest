@@ -4,7 +4,7 @@
     <title>About Page</title>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body onload="loadShopHTML()">
     <div class="topBar">
         <div style="margin-top:5px; margin-right: 5px;" id="questCoin_topBar"></div>
         <img id="profileTopBar" style="justify-content: right;">
@@ -49,6 +49,13 @@
         
       </div> <!--  End of the Shop Page -->
     <div class="seperator">Profiles</div>
+    <div class="shopPage">
+        <div class="shopSquare" onclick="buyProfile('Monkey')" id="Monkey">Monkey Profile<img src="../Profiles/Monkey.png" alt="Monkey Profile" class="backgroundPos"><div class="shopPrice">1000 QC</div></div>
+        <div class="shopSquare" onclick="buyProfile('Rhino')" id="Rhino">Rhino Profile<img src="../Profiles/Rhino.png" alt="Rhino Profile" class="backgroundPos"><div class="shopPrice">1000 QC</div></div>
+        <div class="shopSquare" onclick="buyProfile('Dolphin')" id="Dolphin">Dolphin Profile<img src="../Profiles/Dolphin.png" alt="Dolphin Profile" class="backgroundPos"><div class="shopPrice">1000 QC</div></div>
+        <div class="shopSquare" onclick="buyProfile('Eagle')" id="Eagle">Eagle Profile<img src="../Profiles/Eagle.png" alt="Eagle Profile" class="backgroundPos"><div class="shopPrice">1000 QC</div></div>
+        <div class="shopSquare" onclick="buyProfile('Dragon')" id="Dragon">Dragon Profile<img src="../Profiles/Dragon.png" alt="Dragon Profile" class="backgroundPos"><div class="shopPrice">1000 QC</div></div>
+    </div>
     <div class="seperator">Speech Beach Avatars</div>
     <script src="../scripts/script.js"></script>
 </body>
