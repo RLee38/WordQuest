@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About Page</title>
+    <title>Speech-Beach</title>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -18,8 +18,12 @@
         <div class="square" onclick="openPage('About')">About</div>
         <div class="square" onclick="openPage('User')">User</div>
       </div> <!--  end of the flex-container   -->
-     <div class="gameSquare" onclick="openPage('Flock-Talk')">Flock Talk</div>
-    <div class="gameSquare" onclick="openPage('Speech-Beach')">Speech Beach</div>
-    <script src="../scripts/script.js"></script>
+     <h1>Speech Beach</h1>
+    <p>WPM: <span id="wordsPerMinuteContainer">0</span></p>
+    <p>Accuracy: <span id="accuracyContainer">100</span>%</p>
+    <div class="unselectable" id="textToTypeContainer"></div>
+
+    
+    <script src="../scripts/script.js" type="module"></script>
 </body>
 </html>

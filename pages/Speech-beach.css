@@ -1,0 +1,12 @@
+.unselectable {
+  user-select: none;
+}
+
+#textToTypeContainer {
+  font-family: 'Courier-New', Courier, monospace;
+  border: black 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  width: 50%;
+}
