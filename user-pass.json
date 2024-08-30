@@ -3,7 +3,7 @@
   "username": "Gamerboy26",
     "password": "123abc",
     "age": 2,
-    "QuestCoin": 1000,
+    "QuestCoin": 10000,
     "UnlockedBackgrounds": ["darkflower", "bananas"],
     "UnlockedProfiles":["Monkey","Rhino"]
   },

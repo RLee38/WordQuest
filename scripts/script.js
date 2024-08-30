@@ -58,16 +58,30 @@ console.log("ERROR NOT ENOUGH QC");
   }
 }
 
+function buyProfile(profile,price) {
+  console.log("Buy Profile running");
+  let qc = sessionStorage.getItem("Current_User_QuestCoin");
+  console.log(qc);
+    if (qc >= price) {
+    sessionStorage.setItem('Current_User_QuestCoin', qc - price);
+      let temp = JSON.parse(sessionStorage.getItem('Current_User_Unlocked_Profile'));
+      //console.log(temp[0]+"   "+temp[1]);
+      temp.push(profile);
+      sessionStorage.setItem('Current_User_Unlocked_Profile',JSON.stringify(temp));
+      equipProfile(profile);
+    } else if (qc < price) {
+  console.log("ERROR NOT ENOUGH QC");
+    } else {
+      console.log("BUYPROFILE ERROR");
+    }
+}
+
 function equipBackground(background) {
   console.log("runnnnnn");
   document.body.style.backgroundImage = "url('../Backgrounds/" + background + ".png')";
   sessionStorage.setItem('background', background);
 }
 
-function buyProfile(profile) {
-  console.log("Buying Profile");
-  equipProfile(profile);
-}
 
 function equipProfile(profile) {
   console.log("EQUIP PROFILE IS RUNNING" + profile);
@@ -93,11 +107,13 @@ function loadShopHTML() {
   //Current_User_Unlocked_Profile
   let UP = JSON.parse(sessionStorage.getItem('Current_User_Unlocked_Profile'));
   console.log("UP" + UP);
-  UB = JSON.parse(sessionStorage.getItem('Current_User_Unlocked_Background'));
+  let UB = JSON.parse(sessionStorage.getItem('Current_User_Unlocked_Background'));
   console.log("UB" + UB);
   for (let i = 0; i < UP.length; i++) {
-    console.log(UP[i]);
     document.getElementById(UP[i]).style.display = "none";
+  }
+  for (let i = 0;i < UB.length;i++) {
+    document.getElementById(UB[i]).style.display = "none";
   }
 
 }
