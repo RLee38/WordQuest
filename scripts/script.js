@@ -50,6 +50,13 @@ function buyBackground(background, price) {
     console.log(temp[0]+"   "+temp[1]);
     temp.push(background);
     sessionStorage.setItem('Current_User_Unlocked_Background',JSON.stringify(temp));
+    let bgBox = document.getElementById(background);
+    bgBox.style.display = "none";
+    ////////////////////
+    let qcTopBar = document.getElementById("questCoin_topBar")
+    qcTopBar.innerHTML = sessionStorage.getItem("Current_User_QuestCoin").toString();
+    qcTopBar.innerHTML += " QC";
+    //////////////////////
     equipBackground(background);
   } else if (qc < price) {
 console.log("ERROR NOT ENOUGH QC");
@@ -68,6 +75,14 @@ function buyProfile(profile,price) {
       //console.log(temp[0]+"   "+temp[1]);
       temp.push(profile);
       sessionStorage.setItem('Current_User_Unlocked_Profile',JSON.stringify(temp));
+      let pfBox = document.getElementById(profile);
+      pfBox.style.display = "none";
+
+      /////////////
+      let qcTopBar = document.getElementById("questCoin_topBar")
+      qcTopBar.innerHTML = sessionStorage.getItem("Current_User_QuestCoin").toString();
+      qcTopBar.innerHTML += " QC";
+      ////////////////
       equipProfile(profile);
     } else if (qc < price) {
   console.log("ERROR NOT ENOUGH QC");
