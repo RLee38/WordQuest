@@ -1,17 +1,22 @@
 console.log("running");
-openIndex();
+//openIndex();
 initialBackground();
 loadBackground();
+
+
 function loadBackground() {
   if (sessionStorage.getItem('background') != null) {
-    console.log(sessionStorage.getItem('background'));
-
+console.log(sessionStorage.getItem('background'));
+    
     document.addEventListener('DOMContentLoaded', function() {
+      console.log("LOADING UP SESSION STORAGE BACKGROUND");
+      if (document.body.id != "game") {
       document.body.style.backgroundImage = "url('../Backgrounds/" + sessionStorage.getItem('background') + ".png')";
+    }
     });
-
   }
 }
+
 function initialBackground() {
   if (!sessionStorage.getItem('initializezBackground')) {
     sessionStorage.setItem('initializeBackground', 'true');
@@ -161,14 +166,19 @@ function loadInventoryHTML() {
   }//end for statement
 }
 
+
 function loadFlockTalk(grade) {
+  console.log("LOADING FLOCK TALK");
+  document.body.style.backgroundImage = "url('../FlockTalk/FlockTalkBackground.jpg')";
+  document.body.style.backgroundSize = "cover";
   let first = "about,again,air,all,along,also,another,answer,any,are,around,away,because,been,both,carry,change,come,could,do,does,dont,earth,even,every,eye,father,find,four,from,give,good,great,have,head,here,high,is,kind,know,large,learn,light,long,look,many,might,more,most,mother,move,my,near,night,of,off,often,on,one,only,other,our,people,put,right,said,saw,school,should,some,something,the,their,they,thought,through,two,very,walk,want,was,water,were,what,when,where,who,";
   let second = "accident,agree,arrive,astronomy,atlas,attention,award,aware,balance,banner,bare,base,beach,besides,blast,board,bounce,brain,branch,brave,bright,cage,calf,calm,career,center,cheer,chew,claw,clear,cliff,club,collect,connect,core,corner,couple,crowd,curious,damp,dangerous,dash,dawn,deep,demolish,design,discard,dive,dome,doubt,dozen,earth,enemy,evening,exactly,excess,factory,fair,famous,feast,field,finally,flap,float,flood,fold,fresh,frighten,fuel,gap,gaze,gift,gravity,greedy,harm,herd,idea,insect,instrument,invent,island,leader,leap,lizard,local,lonely,luxury,march,mention,motor,nervous,net,nibble,notice,ocean,pack,pale,parade,past,peak,planet,present,proof,reflect,rumor,safe,scholar,seal,search,settle,share,shelter,shiver,shy,skill,slight,smooth,soil,stack,steady,strand,stream,support,team,telescope,tiny,tower,travel,tremble,universe,village,warn,weak,wealthy,whisper,wise,wonder,worry,yard,zigzag,";
   let third = "ability,absorb,accuse,act,active,actual,adopt,advantage,advice,ambition,ancient,approach,arrange,arctic,attitude,attract,average,avoid,bold,border,brief,brilliant,cable,capture,certain,chill,clever,climate,cling,coast,confess,consider,contain,continent,convince,coward,crew,crumple,custom,decay,deed,defend,delicate,device,diagram,digest,disease,distant,doze,drift,elegant,enable,examine,explore,fan,fatal,fierce,flutter,fortunate,frail,gaspglide,globe,grace,gradual,grasp,habit,harsh,imitate,individual,intelligent,intend,journey,launch,limit,locate,loyal,magnificent,marsh,method,misery,moisture,mural,mystify,nation,nectar,nursery,observe,opponent,opposite,ordeal,origin,outcome,passage,pastime,pause,perform,plunge,predator,predict,prevent,primary,privilege,process,rare,rate,recall,rely,remark,resident,respect,responsible,reverse,revive,risk,scatter,schedule,sensitive,signal,solution,spoil,starve,steer,struggled,suitable,survey,swift,symbol,talent,theory,thrill,treasure,triumph,value,vision,volunteer,wander,wisdom,wit,woe,";
   let fourth = "accurate,address,afford,alert,analyze,ancestor,annual,apparent,appropriate,arena,arrest,ascend,assist,attempt,attentive,attractive,awkward,baggage,basic,benefit,blend,blossom,burrow,calculate,capable,captivity,carefree,century,chamber,circular,coax,column,communicate,competition,complete,concentrate,concern,conclude,confuse,congratulate,considerable,content,contribute,crafty,create,demonstrate,descend,desire,destructive,develop,disaster,disclose,distract,distress,dusk,eager,ease,entertain,entire,entrance,envy,essential,extraordinary,flexible,focus,fragile,frantic,frequent,frontier,furious,generosity,hail,hardship,heroic,host,humble,impact,increase,indicate,inspire,instant,invisible,jagged,lack,limb,limp,manufacture,master,mature,meadow,mistrust,mock,modest,noble,orchard,outstanding,peculiar,peer,permit,plead,plentiful,pointless,portion,practice,precious,prefer,prepare,proceed,queasy,recent,recognize,reduce,release,represent,request,resist,response,reveal,routine,severe,shabby,shallow,sole,source,sturdy,surface,survive,terror,threat,tidy,tour,tradition,tragic,typical,vacant,valiant,variety,vast,venture,weary,";
-  let words;
+  console.log("Words have been assigned");
+  let words = "NULLL";
 switch (grade) {
-  case first:
+  case "first":
     words = first.split(",");
     break;
   case second:
@@ -184,6 +194,8 @@ switch (grade) {
     console.log("ERROR");
     break;
 }
+  console.log("Switch case done, word variable assigned");
+ 
   while (true) {
 FTGameLoop(words);
   }
@@ -192,7 +204,7 @@ FTGameLoop(words);
 function FTGameLoop(words) {
   let word = words[Math.random()*words.length];
   //set the 5 boxes 
-  FTPlaySound(word);
+  setTimeout(FTPlaySound(word),1000);
 }
 
 function FTPlaySound(word) {

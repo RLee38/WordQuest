@@ -2,23 +2,16 @@
 <html>
 <head>
     <title>Flock-Talk</title>
-    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link href="../style.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body onload="loadFlockTalk('first')" id="game">
     <div class="topBar">
         <div style="margin-top:5px; margin-right: 5px;" id="questCoin_topBar"></div>
         <img id="profileTopBar" style="justify-content: right;">
         </div>
-    <div class="flexContainer">
-        <div onclick="openPage('Login')" id="defaultOpen"></div>
-        <div class="square" onclick="openPage('Home')">Home</div>
-        <div class="square" onclick="openPage('Games')">Games</div>
-        <div class="square" onclick="openPage('Shop')">Shop</div>
-        <div class="square" onclick="openPage('Inventory')">Inventory</div>
-        <div class="square" onclick="openPage('About')">About</div>
-        <div class="square" onclick="openPage('User')">User</div>
-      </div> <!--  end of the flex-container   -->
-     <h1>Flock Talk</h1>
+    <div class="backButton" onclick="openPage('Games')">BACK</div>
+    
+     
     
     <script src="../scripts/script.js"></script>
 </body>
