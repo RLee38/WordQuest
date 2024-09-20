@@ -340,5 +340,27 @@ margin-top: 10px;
   user-select: none;
 }
 
+.FTflexContainer {
+  display: flex;
+  flex-flow: row-wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top:160px;
+  height: 100%;
+  width: 80%;
+  margin-left:10%;
+  position: relative;
+  flex-wrap:wrap;
+}
+
+.cloud {
+  height:50%;
+  width:50%;
+
+  &::after {
+    padding: 20px;
+  }
+}
+
 .page {
 }
