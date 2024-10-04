@@ -8,6 +8,12 @@ html {
   color: #2a3979;
 }
 
+.testBox {
+  width:100px;
+  height:100px;
+  background-color: #9da1b4;
+  margin-inline:auto;
+}
 
 h1 {
     font-family: "Jaro", sans-serif;
@@ -24,6 +30,30 @@ h2 {
   font-weight: 400;
   font-style: normal;
   text-shadow: 2px 2px 2px #ccc;
+}
+
+h3 {
+  font-family: "Copperplate", fantasy;
+  font-optical-sizing: auto;
+  font-size: 26px;
+  font-weight:400;
+  font-style: normal;
+  text-align: center;
+  padding: 8px;
+  text-shadow: 2px 2px 2px #ccc;
+  margin-bottom: 0px;
+}
+
+h4 {
+  font-family: "Copperplate", fantasy;
+  font-optical-sizing: auto;
+  font-size: 22px;
+  font-weight:400;
+  font-style: normal;
+  text-align: justify;
+  padding: 8px;
+  text-shadow: 2px 2px 2px #ccc;
+  margin-bottom: 0px;
 }
 
 .flexContainer {
@@ -53,7 +83,7 @@ h2 {
 
 /*SPEECH BEACH*/
 .square:hover {
-/* background-color: #707eff !important;*/
+  background-color: #707eff !important;*/
   width:110px;
   height:110px;
   margin-bottom:0px;
@@ -345,7 +375,7 @@ margin-top: 10px;
   flex-flow: row-wrap;
   justify-content: center;
   align-items: center;
-  padding-top:160px;
+  padding-top:50px;
   height: 100%;
   width: 80%;
   margin-left:10%;
@@ -360,6 +390,45 @@ margin-top: 10px;
   &::after {
     padding: 20px;
   }
+}
+
+.userTextbox {
+  width:40%;
+  background-color: rgba(220,255,220,0.5);
+  border: 2px solid black;
+}
+
+.cloudBox {
+  width:150px;
+  height:75px;
+  background-color: rgba(220,255,220,0.5);
+  border: 2px solid black;
+  margin:20px;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.soundBox {
+  width:200px;
+  height:75px;
+  background-color: #9da1b4;
+  margin-inline:auto;
+  border: 2px solid black;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  margin-top:100px;
+}
+
+.soundBox:hover {
+  width:210px;
+  height:85px;
+}
+
+.cloudBox:hover {
+  width:160px;
+  height:85px;
 }
 
 .page {

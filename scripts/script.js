@@ -171,7 +171,7 @@ function loadFlockTalk(grade) {
   console.log("LOADING FLOCK TALK");
   document.body.style.backgroundImage = "url('../FlockTalk/FlockTalkBackground.jpg')";
   document.body.style.backgroundSize = "cover";
-  let first = "about,again,air,all,along,also,another,answer,any,are,around,away,because,been,both,carry,change,come,could,do,does,dont,earth,even,every,eye,father,find,four,from,give,good,great,have,head,here,high,is,kind,know,large,learn,light,long,look,many,might,more,most,mother,move,my,near,night,of,off,often,on,one,only,other,our,people,put,right,said,saw,school,should,some,something,the,their,they,thought,through,two,very,walk,want,was,water,were,what,when,where,who,";
+  let first = "About,Again,Air,All,Along,Also,Another,Answer,Any,Are,Around,Away,Because,Been,Both,Carry,Change,Come,Could,Do,Does,Dont,Earth,Even,Every,Eye,Father,Find,Four,From,Give,Good,Great,Have,Head,Here,High,Is,Kind,Know,Large,Learn,Light,Long,Look,Many,Might,More,Most,Mother,Move,My,Near,Night,Of,Off,Often,On,One,Only,Other,Our,People,Put,Right,Said,Saw,School,Should,Some,Something,The,Their,They,Thought,Through,Two,Very,Walk,Want,Was,Water,Were,What,When,Where,Who,";
   let second = "accident,agree,arrive,astronomy,atlas,attention,award,aware,balance,banner,bare,base,beach,besides,blast,board,bounce,brain,branch,brave,bright,cage,calf,calm,career,center,cheer,chew,claw,clear,cliff,club,collect,connect,core,corner,couple,crowd,curious,damp,dangerous,dash,dawn,deep,demolish,design,discard,dive,dome,doubt,dozen,earth,enemy,evening,exactly,excess,factory,fair,famous,feast,field,finally,flap,float,flood,fold,fresh,frighten,fuel,gap,gaze,gift,gravity,greedy,harm,herd,idea,insect,instrument,invent,island,leader,leap,lizard,local,lonely,luxury,march,mention,motor,nervous,net,nibble,notice,ocean,pack,pale,parade,past,peak,planet,present,proof,reflect,rumor,safe,scholar,seal,search,settle,share,shelter,shiver,shy,skill,slight,smooth,soil,stack,steady,strand,stream,support,team,telescope,tiny,tower,travel,tremble,universe,village,warn,weak,wealthy,whisper,wise,wonder,worry,yard,zigzag,";
   let third = "ability,absorb,accuse,act,active,actual,adopt,advantage,advice,ambition,ancient,approach,arrange,arctic,attitude,attract,average,avoid,bold,border,brief,brilliant,cable,capture,certain,chill,clever,climate,cling,coast,confess,consider,contain,continent,convince,coward,crew,crumple,custom,decay,deed,defend,delicate,device,diagram,digest,disease,distant,doze,drift,elegant,enable,examine,explore,fan,fatal,fierce,flutter,fortunate,frail,gaspglide,globe,grace,gradual,grasp,habit,harsh,imitate,individual,intelligent,intend,journey,launch,limit,locate,loyal,magnificent,marsh,method,misery,moisture,mural,mystify,nation,nectar,nursery,observe,opponent,opposite,ordeal,origin,outcome,passage,pastime,pause,perform,plunge,predator,predict,prevent,primary,privilege,process,rare,rate,recall,rely,remark,resident,respect,responsible,reverse,revive,risk,scatter,schedule,sensitive,signal,solution,spoil,starve,steer,struggled,suitable,survey,swift,symbol,talent,theory,thrill,treasure,triumph,value,vision,volunteer,wander,wisdom,wit,woe,";
   let fourth = "accurate,address,afford,alert,analyze,ancestor,annual,apparent,appropriate,arena,arrest,ascend,assist,attempt,attentive,attractive,awkward,baggage,basic,benefit,blend,blossom,burrow,calculate,capable,captivity,carefree,century,chamber,circular,coax,column,communicate,competition,complete,concentrate,concern,conclude,confuse,congratulate,considerable,content,contribute,crafty,create,demonstrate,descend,desire,destructive,develop,disaster,disclose,distract,distress,dusk,eager,ease,entertain,entire,entrance,envy,essential,extraordinary,flexible,focus,fragile,frantic,frequent,frontier,furious,generosity,hail,hardship,heroic,host,humble,impact,increase,indicate,inspire,instant,invisible,jagged,lack,limb,limp,manufacture,master,mature,meadow,mistrust,mock,modest,noble,orchard,outstanding,peculiar,peer,permit,plead,plentiful,pointless,portion,practice,precious,prefer,prepare,proceed,queasy,recent,recognize,reduce,release,represent,request,resist,response,reveal,routine,severe,shabby,shallow,sole,source,sturdy,surface,survive,terror,threat,tidy,tour,tradition,tragic,typical,vacant,valiant,variety,vast,venture,weary,";
@@ -196,10 +196,10 @@ switch (grade) {
 }
   console.log("Switch case done, word variable assigned");
  
-  for (let i = 0; i<5;i++) {
-    console.log("ROUND " +(i+1));
+ // for (let i = 0; i<5;i++) {
+    //console.log("ROUND " +(i+1));
 FTGameLoop(words);
-  }
+  //}
 }
 
 function FTGameLoop(words) {
@@ -221,6 +221,7 @@ let num1,num2,num3,num4;
   }
   let word = words[num1];
   console.log("correct word: "+word);
+  sessionStorage.setItem("FT_Word",word);
   let fake1 = words[num2];
   let fake2 = words[num3];
   let fake3 = words[num4];
@@ -235,6 +236,33 @@ let num1,num2,num3,num4;
   cloud3.innerHTML = word;
   let cloud4 = document.getElementById("cloud4");
   cloud4.innerHTML = word;
+
+  switch (Math.floor(Math.random()*4)) {
+    case 0:
+      console.log("case 0");
+      cloud2.innerHTML=fake1;
+      cloud3.innerHTML=fake2;
+      cloud4.innerHTML=fake3;
+      break;
+    case 1:
+      console.log("case 1");
+      cloud1.innerHTML=fake1;
+      cloud3.innerHTML=fake2;
+      cloud4.innerHTML=fake3;
+      break;
+    case 2:
+      console.log("case 2");
+      cloud1.innerHTML=fake1;
+      cloud2.innerHTML=fake2;
+      cloud4.innerHTML=fake3;
+      break;
+    case 3:
+      console.log("case 3");
+      cloud1.innerHTML=fake1;
+      cloud2.innerHTML=fake2;
+      cloud3.innerHTML=fake3;
+      break;
+  }
   
 //Play word sound
 FTPlaySound(word);
@@ -246,8 +274,9 @@ FTPlaySound(word);
   
 }
 
-function FTPlaySound(word) {
- // let Audio = new Audio("../FlockTalk/Sounds/" + word + ".mp3");
+function FTPlaySound() {
+  let audio = new Audio('../FlockTalk/1gradeSounds/' + sessionStorage.getItem('FT_Word') + '.mp3');
+  audio.play();
 }
 
 function newUser() {
@@ -295,36 +324,106 @@ function validateLogin() {
     }))// end for each
   if (!loginSuccess) {
     console.log("Login failed");
-    document.getElementById("InvalidLogin").style.display = "block";
-    document.getElementById("InvalidLogin").style.margin = "auto";
+    //document.getElementById("InvalidLogin").style.display = "block";
+   // document.getElementById("InvalidLogin").style.margin = "auto";
   }
 
   //END LOADING THE USER AND PASSWORDS HERE
 
 }
 
-/*
-import { Racer } from "./racer.js";
+ class Racer {
+    completedRace = false; 
+    errorCount = 0;
+    wordSkips = 1;
+    lettersSkipped = 0;
+    typingIndex = 0;
+    wordsPerMinute = 0;
+    accuracy = 0;
+    raceFinishTime = 0;
+
+    /**
+     * Creates a Racer
+     * @param {string} name The name of the racer
+     * @param {bool} isPlayer If this racer is the current user/player
+     */
+    constructor(name, isPlayer = false) {
+        this.name = name;
+        this.isPlayer = isPlayer;
+    }
+
+    /**
+     * Uses a word skip to skip the next space in the race text
+     * @param {string} raceText The text that the user is currently typing for the race
+     */
+    useWordSkip(raceText) {
+        // Make sure the player has at least 1 word skip, if not return early
+        if (this.wordSkips <= 0) return;
+
+        // Skip to the next space located in the string and decrease the racer's word skips
+        let oldTypingIndex = this.typingIndex;
+        this.typingIndex += raceText.slice(this.typingIndex, raceText.length).indexOf(" ") + 1;
+        this.wordSkips--;
+
+        // Get the amount of letters skipped
+        this.lettersSkipped += this.typingIndex - oldTypingIndex;
+    }
+
+    /**
+     * Completes the race and calculates all the data for this racer
+     * @param {int} raceTime How long the race lasted for this player (measured in centiseconds)
+     * @param {string} raceText The text that the user is currently typing for the race
+     */
+    finishRace(raceTime, raceText) {
+        // Calculate the statistics based on the completed time and word count
+        this.raceFinishTime = raceTime / 100; // Convert the centiseconds to seconds
+        this.updateStats(raceTime, raceText);
+
+        // Set the completed race to true
+        this.completedRace = true;
+    }
+
+    /**
+     * Updates and displays the stats for this racer based on the provided credentials
+     * @param {int} raceTime The duration of the race
+     * @param {string} raceText The text that the user is currently typing for the race
+     */
+    updateStats(raceTime, raceText) {
+        // Get the word count which is just the number of characters divided by 5
+        // Also make sure to factor out the letters that were skipped by using word skips
+        let wordCount = Math.round((this.typingIndex - this.lettersSkipped) / 5);
+
+        // Calculate the statistics based on the current race time and word count
+        if(errorCount >= raceText.length) {
+          errorCount = raceText.length;
+        }
+        this.accuracy = Math.round(((raceText.length - this.errorCount) / raceText.length) * 100);
+        this.wordsPerMinute = Math.round(wordCount / ((raceTime / 100) / 60));
+
+        // Display results only if this is the current user/player
+        if (this.isPlayer) {
+            document.getElementById("wordsPerMinuteContainer").innerHTML = this.wordsPerMinute;
+            document.getElementById("accuracyContainer").innerHTML = this.accuracy;
+        }
+    }
+};
 
 /**
  * Race
  */
-/*
+
 const race = {
     active: false,
     time: 0, // How long the race has been going on in centiseconds
     racers: [],
     textToType: "This is some generic text that doesn't really mean anything and is just here to extend the typing times.",
-
     /**
      * This updates the text to type container using the Player Racer's current position
      * @param {Racer} playerRacer The player racer that is currently playing
      */
-/*
     updateTextToTypeContainer(playerRacer) {
-        let element = document.getElementById("textToTypeContainer");
-
-        element.innerHTML = `<span id="past">${this.textToType.slice(0, playerRacer.typingIndex)}</span><span id="current">${this.textToType.charAt(playerRacer.typingIndex)}</span>${this.textToType.slice(playerRacer.typingIndex + 1, this.textToType.length)}`;
+        let textToTypeContainer = document.getElementById("textToTypeContainer"); // Assuming this is the ID of your text display element
+        textToTypeContainer.innerHTML = `<span id="past">${this.textToType.slice(0, playerRacer.typingIndex)}</span><span id="current">${this.textToType.charAt(playerRacer.typingIndex)}</span><span id="future">${this.textToType.slice(playerRacer.typingIndex + 1, this.textToType.length)}</span>`;
     }
 };
 
@@ -337,7 +436,7 @@ race.racers.push(playerRacer);
 /**
  * When the user presses any key
  */
-/*
+
 document.addEventListener(("keypress"), (event) => {
     // If the race is not currently active then return early
     if (!race.active) return;
@@ -363,7 +462,7 @@ document.addEventListener(("keypress"), (event) => {
 /**
  * Run every 1 centisecond
  */
-/*
+
 setInterval(() => {
     // If the race is active then increment the race time
     if (race.active) race.time++;
@@ -373,13 +472,12 @@ setInterval(() => {
  * Live update the player's current stats throughtout the 
  * Runs every 1 second
  */
-/*
+
 setInterval(() => {
     // If the race is currently active and the player has not completed their race then update the player stats
     if (race.active && !playerRacer.completedRace) playerRacer.updateStats(race.time, race.textToType);
 }, 1000);
 
 // Initalize
-race.active = true; // Start the race when the page loads (change later)
+race.active = false; // Start the race when the page loads (change later)
 race.updateTextToTypeContainer(playerRacer);
-*/
