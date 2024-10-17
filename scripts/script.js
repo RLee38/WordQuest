@@ -43,6 +43,9 @@ function openIndex() {
 
 
 function openPage(newPage) {
+  if (newPage) {
+    
+  }
   window.open("../pages/" + newPage + ".html", "_self");
 }
 
@@ -181,13 +184,13 @@ switch (grade) {
   case "first":
     words = first.split(",");
     break;
-  case second:
+  case "second":
     words = second.split(",");
     break;
-  case third:
+  case "third":
     words = third.split(",");
     break;
-  case fourth:
+  case "fourth":
     words = fourth.split(",");
     break;
   default:
@@ -203,6 +206,7 @@ FTGameLoop(words);
 }
 
 function FTGameLoop(words) {
+  sessionStorage.setItem("FT_Word_Array",JSON.stringify(words));
   //let num = Math.floor(Math.random()*words.length);
   //console.log(num);
 let num1,num2,num3,num4;
@@ -279,6 +283,48 @@ function FTPlaySound() {
   audio.play();
 }
 
+function verifyFTAns(cloudID) {
+  console.log("VERIFYFTANS running");
+  let word = sessionStorage.getItem('FT_Word');
+  let cloud = document.getElementById(cloudID);
+  console.log(cloud.innerHTML);
+  if (cloud.innerHTML == word) {
+    console.log("CORRECT");
+    let temp = Number (sessionStorage.getItem('Current_User_QuestCoin'));
+    console.log(temp);
+    temp = temp+100;
+    sessionStorage.setItem('Current_User_QuestCoin',temp);
+    console.log(sessionStorage.getItem('Current_User_QuestCoin'));
+    reloadQCTopBar();
+    loadCorrectScreen() 
+      
+  } else {
+    console.log("INCORRECT");
+    loadIncorrectScreen();
+  }
+  FTGameLoop(JSON.parse(sessionStorage.getItem('FT_Word_Array')));//ln 205
+}
+
+function loadCorrectScreen() {
+  console.log("LOADING CORRECT SCREEN");
+  let win = document.createElement("div");
+  document.body.appendChild(win);
+  win.className = "winScreen";
+  win.innerHTML = "CORRECT";
+  //win.style.width = "100%";
+  //win.style.height = "100%";
+ // win.style.backgroundColor = "rgba(0,200,0,0.5)";
+  //win.style.display = "block";
+}
+
+function loadIncorrectScreen() {
+  console.log("LOADING INCORRECT SCREEN");
+  let loss = document.createElement("div");
+  document.body.appendChild(loss);
+  loss.className = "lossScreen";
+  loss.innerHTML = "INCORRECT";
+}
+
 function newUser() {
   console.log("NEW USR BEING CALLED");
   openPage('Signup');
@@ -294,6 +340,13 @@ document.addEventListener('DOMContentLoaded',
     profileTopBar = document.getElementById('profileTopBar');
     profileTopBar.src = "../Profiles/" + sessionStorage.getItem("profile") + ".png";
   });
+
+function reloadQCTopBar() {
+  console.log("RELOADING QC TOP BAR");
+  let qcTopBar = document.getElementById("questCoin_topBar");
+  qcTopBar.innerHTML = sessionStorage.getItem("Current_User_QuestCoin").toString();
+  qcTopBar.innerHTML += " QC";
+}
 
 
 function validateLogin() {
@@ -335,12 +388,11 @@ function validateLogin() {
  class Racer {
     completedRace = false; 
     errorCount = 0;
-    wordSkips = 1;
-    lettersSkipped = 0;
     typingIndex = 0;
     wordsPerMinute = 0;
     accuracy = 0;
     raceFinishTime = 0;
+    time = 0;
 
     /**
      * Creates a Racer
@@ -351,23 +403,7 @@ function validateLogin() {
         this.name = name;
         this.isPlayer = isPlayer;
     }
-
-    /**
-     * Uses a word skip to skip the next space in the race text
-     * @param {string} raceText The text that the user is currently typing for the race
-     */
-    useWordSkip(raceText) {
-        // Make sure the player has at least 1 word skip, if not return early
-        if (this.wordSkips <= 0) return;
-
-        // Skip to the next space located in the string and decrease the racer's word skips
-        let oldTypingIndex = this.typingIndex;
-        this.typingIndex += raceText.slice(this.typingIndex, raceText.length).indexOf(" ") + 1;
-        this.wordSkips--;
-
-        // Get the amount of letters skipped
-        this.lettersSkipped += this.typingIndex - oldTypingIndex;
-    }
+    
 
     /**
      * Completes the race and calculates all the data for this racer
@@ -375,12 +411,9 @@ function validateLogin() {
      * @param {string} raceText The text that the user is currently typing for the race
      */
     finishRace(raceTime, raceText) {
-        // Calculate the statistics based on the completed time and word count
-        this.raceFinishTime = raceTime / 100; // Convert the centiseconds to seconds
-        this.updateStats(raceTime, raceText);
-
-        // Set the completed race to true
-        this.completedRace = true;
+      this.raceFinishTime = raceTime / 100; // Convert the centiseconds to seconds
+       this.updateStats(raceTime, raceText);
+       this.completedRace = true;
     }
 
     /**
@@ -388,24 +421,30 @@ function validateLogin() {
      * @param {int} raceTime The duration of the race
      * @param {string} raceText The text that the user is currently typing for the race
      */
-    updateStats(raceTime, raceText) {
-        // Get the word count which is just the number of characters divided by 5
-        // Also make sure to factor out the letters that were skipped by using word skips
-        let wordCount = Math.round((this.typingIndex - this.lettersSkipped) / 5);
+   updateStats(raceTime, raceText) {
+     const effectiveTypingIndex = this.typingIndex;
+     const totalErrors = Math.min(this.errorCount, raceText.length);
+     this.accuracy = Math.round(((raceText.length - totalErrors) / raceText.length) * 100);
+     // Convert raceTime (centiseconds) to minutes
+     const raceTimeMinutes = raceTime / 6000; 
+     // Count the number of spaces typed correctly
+     const spacesTyped = raceText.slice(0, effectiveTypingIndex).split(' ').length - 1; 
+     // Adjust for initial space
+     if (raceText.charAt(0) === ' ') {
+       spacesTyped++;
+     }
+     this.wordsPerMinute = Math.round(Math.abs(((effectiveTypingIndex / 5) - totalErrors) / raceTimeMinutes)); 
 
-        // Calculate the statistics based on the current race time and word count
-        if(errorCount >= raceText.length) {
-          errorCount = raceText.length;
-        }
-        this.accuracy = Math.round(((raceText.length - this.errorCount) / raceText.length) * 100);
-        this.wordsPerMinute = Math.round(wordCount / ((raceTime / 100) / 60));
+      if (this.wordsPerMinute > 90) {
+        this.wordsPerMinute = Math.floor(Math.random() * (75 - 60 + 1) + 60);
+      }
+     
+     if (this.isPlayer) {
+       document.getElementById("wordsPerMinuteContainer").innerHTML = this.wordsPerMinute;
+       document.getElementById("accuracyContainer").innerHTML = this.accuracy;
+     }
+   }
 
-        // Display results only if this is the current user/player
-        if (this.isPlayer) {
-            document.getElementById("wordsPerMinuteContainer").innerHTML = this.wordsPerMinute;
-            document.getElementById("accuracyContainer").innerHTML = this.accuracy;
-        }
-    }
 };
 
 /**
@@ -413,71 +452,82 @@ function validateLogin() {
  */
 
 const race = {
-    active: false,
-    time: 0, // How long the race has been going on in centiseconds
-    racers: [],
-    textToType: "This is some generic text that doesn't really mean anything and is just here to extend the typing times.",
-    /**
-     * This updates the text to type container using the Player Racer's current position
-     * @param {Racer} playerRacer The player racer that is currently playing
-     */
-    updateTextToTypeContainer(playerRacer) {
-        let textToTypeContainer = document.getElementById("textToTypeContainer"); // Assuming this is the ID of your text display element
-        textToTypeContainer.innerHTML = `<span id="past">${this.textToType.slice(0, playerRacer.typingIndex)}</span><span id="current">${this.textToType.charAt(playerRacer.typingIndex)}</span><span id="future">${this.textToType.slice(playerRacer.typingIndex + 1, this.textToType.length)}</span>`;
-    }
+  active: false,
+  time: 0, // How long the race has been going on in centiseconds
+  racers: [],
+  textToType: "This sentence has no meaning and is here to extend the typing times.",
+  /**
+   * Updates the text to type container using the Player Racer's current position
+   * @param {Racer} playerRacer The player racer that is currently playing
+   */
+  updateTextToTypeContainer(playerRacer) {
+    const textToTypeContainer = document.getElementById("textToTypeContainer");
+    textToTypeContainer.innerHTML = `
+        <span id="past">${this.textToType.slice(0, playerRacer.typingIndex)}</span>
+        <span id="current">${this.textToType.charAt(playerRacer.typingIndex)}</span>
+        <span id="future">${this.textToType.slice(playerRacer.typingIndex + 1)}</span>`;
+  },
+  startRace() {
+    this.active = true;
+    this.time = 0;
+  },
+  stopRace() {
+    this.active = false;
+  }
 };
 
 // Initialize the player racer
 const playerRacer = new Racer("Player", true);
-
-// Append the player racer to the race's list of racers
 race.racers.push(playerRacer);
 
 /**
  * When the user presses any key
  */
+document.addEventListener("keypress", (event) => {
+  if (!race.active) return;
 
-document.addEventListener(("keypress"), (event) => {
-    // If the race is not currently active then return early
-    if (!race.active) return;
+  if (event.key === race.textToType.charAt(playerRacer.typingIndex)) {
+    playerRacer.typingIndex++;
+    race.updateTextToTypeContainer(playerRacer);
 
-    // Process the input
-    if (event.key == race.textToType.charAt(playerRacer.typingIndex)) {
-        // The user types the right key so increase their typing index and update the screen
-        playerRacer.typingIndex++;
-        race.updateTextToTypeContainer(playerRacer);
+    // Move the swimmer image
+    const swimmerFigure = document.getElementById("swimmerFigure");
+    const characterWidth = 10; // Approximate width of each character in pixels
+    const newLeftPosition = playerRacer.typingIndex * characterWidth; // Update based on typingIndex
+    swimmerFigure.style.left = `${newLeftPosition}px`; // Move swimmer figure
 
-        // If this player has finished the race then call the racer's finish race method
-        if (playerRacer.typingIndex >= race.textToType.length) playerRacer.finishRace(race.time, race.textToType);
-    } else if (event.key == "Enter") {
-        // The user pressed enter and wants to skip a word
-        playerRacer.useWordSkip(race.textToType);
-        race.updateTextToTypeContainer(playerRacer);
-    } else {
-        // The user pressed the wrong key that is not present in the text to type
-        playerRacer.errorCount++;
+    if (playerRacer.typingIndex >= race.textToType.length) {
+      playerRacer.finishRace(race.time, race.textToType);
     }
+  } else {
+    playerRacer.errorCount++;
+  }
 });
 
 /**
  * Run every 1 centisecond
  */
-
 setInterval(() => {
-    // If the race is active then increment the race time
-    if (race.active) race.time++;
+  if (race.active) race.time++;
 }, 10);
 
 /**
- * Live update the player's current stats throughtout the 
+ * Live update the player's current stats throughout the race
  * Runs every 1 second
  */
-
 setInterval(() => {
-    // If the race is currently active and the player has not completed their race then update the player stats
-    if (race.active && !playerRacer.completedRace) playerRacer.updateStats(race.time, race.textToType);
+  if (race.active && !playerRacer.completedRace) {
+    playerRacer.updateStats(race.time, race.textToType);
+  }
 }, 1000);
 
-// Initalize
-race.active = false; // Start the race when the page loads (change later)
+// Initialize
 race.updateTextToTypeContainer(playerRacer);
+
+
+document.getElementById('startRaceButton').addEventListener('click', () => {
+    race.startRace(); // Call the start method in your race object
+    document.body.style.backgroundImage = "url('../Speech-Beach/beachBackground.jpeg')";
+    document.body.style.backgroundSize = "cover";
+    race.updateTextToTypeContainer(playerRacer); // Update the display
+});
